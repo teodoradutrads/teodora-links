@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Teodora Dutra</title>
+<meta name="description" content="Teodora Dutra · Owner Tóda &amp; Lota.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,500;100,600;125,800&display=swap">
+<style>
+  /* Layout: nome grande alinhado à esquerda com assinatura desenhada; links como linhas de uma lista pessoal */
+  :root {
+    --bg: #F2F1EE;
+    --surface: #FFFFFF;
+    --ink: #151515;
+    --muted: #6E6B66;
+    --line: #E1DED8;
+    --accent: #1E40FF;
+    --display: "Archivo", "Arial Black", ui-sans-serif, system-ui, sans-serif;
+    --body: "Archivo", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121214; --surface: #1C1C20; --ink: #F2F1EE; --muted: #9C9AA3;
+      --line: #2C2C33; --accent: #5C7CFF; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121214; --surface: #1C1C20; --ink: #F2F1EE; --muted: #9C9AA3;
+    --line: #2C2C33; --accent: #5C7CFF; color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 400 15px/1.5 var(--body);
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+    padding-block: 64px 56px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 440px; margin: 0 auto; display: grid; gap: 40px; }
+
+  header { display: grid; gap: 14px; }
+  .name { position: relative; padding-bottom: 6px; }
+  h1 {
+    position: relative; z-index: 1; margin: 0;
+    font: 800 clamp(30px, 9vw, 40px)/1 var(--display); font-stretch: 125%; letter-spacing: -0.03em;
+  }
+  .sign {
+    position: absolute; left: -6px; top: 18px; z-index: 0;
+    width: min(330px, 92%); height: auto; color: var(--accent);
+  }
+  .sign path {
+    fill: none; stroke: currentColor; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;
+    stroke-dasharray: 700; stroke-dashoffset: 0; animation: draw 1.6s .15s ease-out both;
+  }
+  @keyframes draw { from { stroke-dashoffset: 700; } to { stroke-dashoffset: 0; } }
+  .role { margin-top: 26px !important; }
+  .role { margin: 0; font-size: 16px; color: var(--muted); max-width: 30ch; }
+  .role b { color: var(--ink); font-weight: 600; }
+
+  .group { display: grid; gap: 8px; }
+  .label {
+    margin: 0 0 4px; font: 500 13px/1 var(--display); letter-spacing: .02em; color: var(--muted);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .label::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .desc { margin: -2px 0 6px; color: var(--muted); font-size: 14px; max-width: 42ch; }
+
+  a.link {
+    display: grid; grid-template-columns: 40px 1fr 18px; align-items: center; gap: 14px;
+    padding: 12px 16px 12px 12px; border-radius: 14px;
+    background: var(--surface); border: 1px solid var(--line);
+    color: var(--ink); text-decoration: none;
+    transition: border-color .18s ease, transform .18s ease;
+  }
+  a.link:hover { border-color: var(--ink); transform: translateX(3px); }
+  a.link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .logo { width: 40px; height: 40px; border-radius: 10px; overflow: hidden; display: block; }
+  .logo img, .logo svg { width: 100%; height: 100%; display: block; }
+  .ico {
+    width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center;
+    background: var(--bg); color: var(--accent);
+  }
+  .ico svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .txt { min-width: 0; }
+  .txt strong { display: block; font-weight: 600; font-size: 15.5px; }
+  .txt span { display: block; color: var(--muted); font-size: 13px; overflow-wrap: anywhere; }
+  .arrow { width: 16px; height: 16px; stroke: var(--muted); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: stroke .18s ease; }
+  a.link:hover .arrow { stroke: var(--accent); }
+
+  footer { text-align: center; padding-top: 4px; }
+  footer p { margin: 0 auto; font-size: 12.5px; color: var(--muted); opacity: .8; max-width: 34ch; text-wrap: balance; }
+
+  @media (prefers-reduced-motion: reduce) {
+    a.link, .arrow { transition: none; } a.link:hover { transform: none; }
+    .sign path { animation: none; }
+  }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header>
+    <div class="name">
+      <svg class="sign" viewBox="0 0 330 70" aria-hidden="true"><path d="M8 50c30-14 56-22 76-14 14 6-6 20 8 20 22 0 38-28 62-24 16 3 4 20 22 19 30-2 62-24 96-24 22 0 38 6 52 4"/></svg>
+      <h1>Teodora Dutra</h1>
+    </div>
+    <p class="role">Owner <b>Tóda</b> &amp; <b>Lota</b></p>
+  </header>
+
+  <section class="group">
+    <p class="label">Tóda</p>
+    <p class="desc">Estruturo operações comerciais com processo, dados e IA para empresas que querem crescer com previsibilidade.</p>
+    <a class="link" href="https://todaeco.com/" target="_blank" rel="noopener">
+      <span class="logo"><svg viewBox="500 240 900 900" aria-hidden="true"><rect x="500" y="240" width="900" height="900" fill="#0D2218"/><path d="M756 811L936 571L1146 681" fill="none" stroke="#C4F53E" stroke-width="40" stroke-linejoin="round"/><circle cx="756" cy="811" r="60" fill="#C4F53E"/><circle cx="936" cy="571" r="60" fill="#C4F53E"/><circle cx="1146" cy="681" r="60" fill="#C4F53E"/></svg></span>
+      <span class="txt"><strong>Site da Tóda</strong><span>todaeco.com</span></span>
+      <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
+    </a>
+    <a class="link" href="https://www.instagram.com/somostoda_/" target="_blank" rel="noopener">
+      <span class="logo"><svg viewBox="500 240 900 900" aria-hidden="true"><rect x="500" y="240" width="900" height="900" fill="#0D2218"/><path d="M756 811L936 571L1146 681" fill="none" stroke="#C4F53E" stroke-width="40" stroke-linejoin="round"/><circle cx="756" cy="811" r="60" fill="#C4F53E"/><circle cx="936" cy="571" r="60" fill="#C4F53E"/><circle cx="1146" cy="681" r="60" fill="#C4F53E"/></svg></span>
+      <span class="txt"><strong>Instagram da Tóda</strong><span>@somostoda_</span></span>
+      <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
+    </a>
+  </section>
+
+  <section class="group">
+    <p class="label">Lota</p>
+    <p class="desc">Painel para gerenciar grupos de WhatsApp em lançamentos, promoções e comunidades de clientes.</p>
+    <a class="link" href="https://www.instagram.com/lotagrupo/" target="_blank" rel="noopener">
+      <span class="logo"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><clipPath id="lota-b"><path d="M20 6h8a14 14 0 0 1 14 14v6a14 14 0 0 1-14 14H13l-7 4.5V20A14 14 0 0 1 20 6z"/></clipPath></defs><rect width="48" height="48" fill="#4CC26A"/><g transform="translate(10.08 9.355) scale(0.58)"><g clip-path="url(#lota-b)"><rect width="48" height="48" fill="#0F2E22" opacity=".18"/><path d="M0 27c5-3.2 9-3.2 14 0s9 3.2 14 0 9-3.2 14 0 6 2 6 2V48H0z" fill="#0F2E22"/></g><path d="M20 6h8a14 14 0 0 1 14 14v6a14 14 0 0 1-14 14H13l-7 4.5V20A14 14 0 0 1 20 6z" fill="none" stroke="#0F2E22" stroke-width="4" stroke-linejoin="round"/></g></svg></span>
+      <span class="txt"><strong>Instagram da Lota</strong><span>@lotagrupo</span></span>
+      <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
+    </a>
+  </section>
+
+  <section class="group">
+    <p class="label">Entre em contato</p>
+    <a class="link" href="https://wa.me/554896640747?text=Vim%20pelo%20instagram%20da%20Teodora%20e%20quero%20saber%20mais" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.4-4.3A8.5 8.5 0 1 1 20.5 11.7z"/><path d="M9 9.2c.3 1.6 1.9 3.5 3.8 4.4l1.2-1 1.7.8c-.2 1-1 1.6-2 1.6-2.9-.3-5.6-3-5.9-5.9 0-1 .6-1.8 1.6-2l.8 1.7z"/></svg></span>
+      <span class="txt"><strong>WhatsApp</strong></span>
+      <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
+    </a>
+    <a class="link" href="mailto:contato.teodoradutra@gmail.com">
+      <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></span>
+      <span class="txt"><strong>E-mail</strong><span>contato.teodoradutra@gmail.com</span></span>
+      <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
+    </a>
+  </section>
+
+  <footer>
+    <p>Você não pode parar as ondas, mas pode aprender a surfar.</p>
+  </footer>
+
+</main>
+</body>
+</html>
