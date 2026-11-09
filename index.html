@@ -4,163 +4,186 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Teodora Dutra</title>
-<meta name="description" content="Teodora Dutra · Tóda, Lota e Trudda.">
-<meta name="theme-color" content="#9DB8D6">
+<meta name="description" content="Teodora Dutra, fundadora da Tóda, da Lota e da Trudda. Ajudo empresas digitais a vender mais.">
+<meta name="theme-color" content="#000000">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400;100,500;100,600&family=Poppins:wght@700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
 <style>
-  /* Layout: foto de praia fixa ocupando a tela; nome sobre o céu, cada marca num painel de vidro sobre o mar e a areia */
+  /* Layout editorial: foto cheia com o nome na largura da tela, seção sólida sobre ela e uma seção por empresa com mockup do site */
   :root {
-    --ink: #10202E;
-    --muted: #4A5866;
-    --glass: rgba(255, 255, 255, 0.62);
-    --glass-strong: rgba(255, 255, 255, 0.8);
-    --edge: rgba(255, 255, 255, 0.7);
-    --rule: rgba(16, 32, 46, 0.12);
-    --foam: #FFFFFF;
-    --font: "Archivo", "Arial Black", ui-sans-serif, system-ui, sans-serif;
-    color-scheme: light;
+    --black: #000000;
+    --white: #FFFFFF;
+    --paper: #EDEFF2;
+    --gray-d: #A3A7AD;
+    --gray-l: #5A5E64;
+    --font: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+    color-scheme: dark;
   }
-
   * { box-sizing: border-box; }
-  html { background: #9DB8D6; }
-  body {
-    margin: 0; min-height: 100vh; color: var(--ink);
-    font: 400 15px/1.5 var(--font);
-    padding-left: max(18px, env(safe-area-inset-left, 0px));
-    padding-right: max(18px, env(safe-area-inset-right, 0px));
-    padding-top: calc(56px + env(safe-area-inset-top, 0px));
-    padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
-    -webkit-font-smoothing: antialiased;
-  }
-  /* Foto fixa: um pseudo-elemento em vez de background-attachment, que não funciona no iPhone */
-  body::before {
-    content: ""; position: fixed; inset: 0; z-index: -1;
-    background:
-      linear-gradient(180deg, rgba(157,184,214,0) 0%, rgba(157,184,214,0) 45%, rgba(214,190,160,.35) 100%),
-      url("praia.jpg") center 42% / cover no-repeat;
-  }
+  html { background: var(--black); overflow-x: clip; }
+  body { margin: 0; background: var(--black); color: var(--white); font: 400 17px/1.45 var(--font); -webkit-font-smoothing: antialiased; overflow-x: clip; }
+  p, h1, h2, h3 { margin: 0; }
+  a { color: inherit; }
+  a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 
-  .wrap { max-width: 460px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .gut { padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
 
-  header { display: grid; justify-items: center; text-align: center; gap: 10px; padding: 0 6px 30px; }
-  .name { position: relative; width: fit-content; max-width: 100%; }
+  /* Seção 1 */
+  .hero { position: relative; height: 100svh; min-height: 560px; max-height: 980px; overflow: hidden; background: #6E9CC8; }
+  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 71% 50%; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.22) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 56%, rgba(0,0,0,.5) 100%); }
+  .top { position: absolute; z-index: 2; left: 0; right: 0; top: calc(20px + env(safe-area-inset-top, 0px)); display: flex; justify-content: space-between; font-size: 14px; font-weight: 500; }
+  .top nav { display: flex; gap: 16px; }
+  .top a { text-decoration: none; }
+  .top a:hover { text-decoration: underline; }
+  .caps { position: absolute; z-index: 2; left: 0; right: 0; bottom: calc(27.5vw + 10px); display: flex; justify-content: space-between; gap: 24px; font-size: 14px; line-height: 1.3; font-weight: 500; }
+  .caps p:last-child { text-align: right; max-width: 24ch; }
   h1 {
-    position: relative; z-index: 1; margin: 0;
-    font: 700 clamp(32px, 10vw, 46px)/1.05 "Poppins", sans-serif; letter-spacing: -0.03em;
-    color: var(--ink);
+    position: absolute; z-index: 2; left: 0; right: 0; bottom: .035em; text-align: center; white-space: nowrap;
+    font: 600 32vw/.86 var(--font); letter-spacing: -.075em; animation: up 1.2s cubic-bezier(.2,.7,.2,1) both;
   }
-  .sign {
-    position: absolute; left: -8px; top: -10px; z-index: 0;
-    width: calc(100% + 16px); height: auto; color: var(--foam);
-  }
-  .sign path {
-    fill: none; stroke: currentColor; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;
-    stroke-dasharray: 700; animation: draw 1.6s .15s ease-out both;
-  }
-  @keyframes draw { from { stroke-dashoffset: 700; } to { stroke-dashoffset: 0; } }
+  @keyframes up { from { transform: translateY(14%); } to { transform: translateY(0); } }
 
-  .panel {
-    background: var(--glass);
-    -webkit-backdrop-filter: blur(16px) saturate(1.2); backdrop-filter: blur(16px) saturate(1.2);
-    border: 1px solid var(--edge); border-radius: 22px;
-    padding: 18px 16px 8px;
-  }
-  .panel-head { display: flex; align-items: center; gap: 12px; padding: 0 2px 12px; }
-  .panel-head .logo { width: 42px; height: 42px; border-radius: 11px; overflow: hidden; flex: none; }
-  .panel-head h2 { margin: 0; font: 700 20px/1.1 "Poppins", sans-serif; letter-spacing: -0.01em; }
-  .panel-head p { margin: 3px 0 0; color: var(--muted); font-size: 13.5px; line-height: 1.4; }
+  /* Seção 2 */
+  .about { background: var(--black); padding-block: 72px 96px; }
+  .about .in { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .about h2 { font-size: 18px; font-weight: 600; }
+  .about p { font-size: clamp(26px, 7vw, 46px); line-height: 1.12; font-weight: 500; letter-spacing: -.03em; max-width: 26ch; text-wrap: pretty; }
+  .about p + p { color: var(--gray-d); margin-top: 8px; }
+
+  /* Empresas */
+  .co { padding-block: 72px 84px; }
+  .co.light { background: var(--paper); color: var(--black); }
+  .co.dark { background: var(--black); color: var(--white); }
+  .co .in { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .frame { border-radius: 12px; overflow: hidden; background: #16181C; box-shadow: 0 30px 60px -28px rgba(0,0,0,.55); }
+  .co.dark .frame { box-shadow: 0 0 0 1px rgba(255,255,255,.14); }
+  .bar { display: flex; align-items: center; gap: 6px; padding: 10px 12px; }
+  .bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.26); }
+  .bar span { margin-left: 8px; font-size: 12px; color: #B8BCC2; }
+  .frame img { display: block; width: 100%; height: auto; aspect-ratio: 1440 / 900; object-fit: cover; }
+
+  .name { display: flex; align-items: center; gap: 14px; }
+  .logo { width: 44px; height: 44px; border-radius: 11px; overflow: hidden; flex: none; }
   .logo svg { width: 100%; height: 100%; display: block; }
+  .name h2 { font-size: 22px; font-weight: 600; letter-spacing: -.02em; }
+  h3 { font-size: clamp(44px, 12.6vw, 84px); line-height: .94; font-weight: 600; letter-spacing: -.05em; text-transform: uppercase; }
+  .desc { font-size: 19px; line-height: 1.35; max-width: 34ch; }
+  .co.light .desc { color: var(--gray-l); }
+  .co.dark .desc { color: var(--gray-d); }
+  .text { display: grid; gap: 20px; align-content: center; }
 
+  .links { display: grid; }
   a.row {
-    display: grid; grid-template-columns: 1fr 18px; align-items: center; gap: 12px;
-    padding: 13px 4px; border-top: 1px solid var(--rule);
-    color: var(--ink); text-decoration: none; border-radius: 10px;
-    transition: background-color .15s ease, padding .15s ease;
+    display: grid; grid-template-columns: minmax(0, 1fr) auto 16px; align-items: center; gap: 14px;
+    padding: 15px 0; border-top: 1px solid currentColor; text-decoration: none; font-size: 18px; font-weight: 500;
+    transition: padding-left .15s ease, opacity .15s ease;
   }
-  a.row:hover { background: var(--glass-strong); padding-left: 10px; padding-right: 10px; }
-  a.row:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-  .row strong { display: block; font-weight: 600; font-size: 15px; }
-  .row span { display: block; color: var(--muted); font-size: 13px; overflow-wrap: anywhere; }
-  .arrow { width: 16px; height: 16px; stroke: var(--ink); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  a.row:hover { padding-left: 8px; opacity: .65; }
+  .row span { font-size: 14px; font-weight: 400; opacity: .68; overflow-wrap: anywhere; text-align: right; }
+  .arrow { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-  .contact { padding: 8px; display: grid; gap: 8px; }
-  a.cta {
-    display: grid; grid-template-columns: 22px 1fr 18px; align-items: center; gap: 12px;
-    padding: 15px 14px; border-radius: 16px; text-decoration: none; color: var(--ink);
-    background: var(--glass-strong);
+  /* Contato */
+  .contact { background: var(--black); padding-block: 84px calc(52px + env(safe-area-inset-bottom, 0px)); }
+  .contact .in { max-width: 1200px; margin: 0 auto; display: grid; gap: 22px; }
+  .contact h2 { font-size: clamp(64px, 19vw, 190px); line-height: .9; font-weight: 600; letter-spacing: -.065em; }
+  a.wa {
+    display: flex; justify-content: space-between; align-items: center; padding: 24px; border-radius: 12px;
+    background: var(--white); color: var(--black); font-size: 24px; font-weight: 600; letter-spacing: -.02em; text-decoration: none;
+    transition: background-color .15s ease;
   }
-  a.cta.primary { background: var(--ink); color: #FFFFFF; }
-  a.cta.primary .arrow, a.cta.primary .ico { stroke: #FFFFFF; }
-  a.cta:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
-  .cta strong { font-weight: 600; font-size: 15.5px; display: block; }
-  .cta span { font-size: 13px; opacity: .75; display: block; overflow-wrap: anywhere; }
-  .ico { width: 20px; height: 20px; stroke: var(--ink); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  a.wa:hover { background: var(--paper); }
+  a.wa .arrow { width: 22px; height: 22px; }
+  footer { text-align: center; padding-top: 44px; }
+  footer p { margin: 0 auto; max-width: 30ch; font-size: 18px; line-height: 1.4; text-wrap: balance; }
 
-  footer { text-align: center; padding-top: 10px; }
-  footer p {
-    margin: 0 auto; max-width: 30ch; font-size: 15px; line-height: 1.45; color: var(--ink);
-    text-shadow: 0 1px 8px rgba(255,255,255,.6); text-wrap: balance;
+  @media (min-width: 860px) {
+    .about .in { grid-template-columns: 1fr 3fr; }
+    .co .in { grid-template-columns: 1.35fr 1fr; gap: 56px; align-items: center; }
+    .co.flip .frame { order: 2; }
   }
-
-  @media (prefers-reduced-motion: reduce) { .sign path { animation: none; } a.row { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { h1 { animation: none; } a.row, a.wa { transition: none; } }
 </style>
 </head>
 <body>
-<main class="wrap">
 
-  <header>
-    <div class="name">
-      <svg class="sign" viewBox="0 0 330 70" aria-hidden="true"><path d="M8 50c30-14 56-22 76-14 14 6-6 20 8 20 22 0 38-28 62-24 16 3 4 20 22 19 30-2 62-24 96-24 22 0 38 6 52 4"/></svg>
-      <h1>Teodora Dutra</h1>
-    </div>
-  </header>
+<header class="hero">
+  <img src="bandeira.jpg" alt="Praia de Florianópolis com bandeira vermelha fincada na areia e o mar azul ao fundo">
+  <div class="top gut"><span>Teodora Dutra</span><nav aria-label="Empresas"><a href="#toda">Tóda</a><a href="#lota">Lota</a><a href="#trudda">Trudda</a></nav></div>
+  <div class="caps gut"><p>Fundadora</p><p>Ajudo empresas digitais a vender mais</p></div>
+  <h1>teodora</h1>
+</header>
 
-  <section class="panel" aria-labelledby="toda">
-    <div class="panel-head">
-      <span class="logo"><svg viewBox="500 240 900 900" aria-hidden="true"><rect x="500" y="240" width="900" height="900" fill="#0D2218"/><path d="M756 811L936 571L1146 681" fill="none" stroke="#C4F53E" stroke-width="40" stroke-linejoin="round"/><circle cx="756" cy="811" r="60" fill="#C4F53E"/><circle cx="936" cy="571" r="60" fill="#C4F53E"/><circle cx="1146" cy="681" r="60" fill="#C4F53E"/></svg></span>
-      <div><h2 id="toda">Tóda</h2><p>Estruturo a operação comercial de infoprodutores com processo, dados e IA.</p></div>
+<section class="about gut" aria-labelledby="sobre">
+  <div class="in">
+    <h2 id="sobre">Sobre mim</h2>
+    <div>
+      <p>Hoje sou fundadora da Tóda, da Lota e da Trudda. Três empresas com o mesmo objetivo: ajudar empresas digitais a vender mais.</p>
+      <p>Muitas já vendem, mas continuam no caos digital. É aí que eu entro.</p>
     </div>
-    <a class="row" href="https://todaeco.com/" target="_blank" rel="noopener"><div><strong>Site</strong><span>todaeco.com</span></div><svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-    <a class="row" href="https://www.instagram.com/somostoda_/" target="_blank" rel="noopener"><div><strong>Instagram</strong><span>@somostoda_</span></div><svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+  </div>
+</section>
+
+<main>
+
+  <section class="co light gut" id="toda" aria-labelledby="t-toda">
+    <div class="in">
+      <figure class="frame" style="margin:0"><div class="bar"><i></i><i></i><i></i><span>todaeco.com</span></div><img src="site-toda.jpg" alt="Página inicial do site da Tóda" loading="lazy"></figure>
+      <div class="text">
+        <div class="name"><span class="logo"><svg viewBox="500 240 900 900" aria-hidden="true"><rect x="500" y="240" width="900" height="900" fill="#0D2218"/><path d="M756 811L936 571L1146 681" fill="none" stroke="#C4F53E" stroke-width="40" stroke-linejoin="round"/><circle cx="756" cy="811" r="60" fill="#C4F53E"/><circle cx="936" cy="571" r="60" fill="#C4F53E"/><circle cx="1146" cy="681" r="60" fill="#C4F53E"/></svg></span><h2 id="t-toda">Tóda</h2></div>
+        <h3>Estrutura antes de escala.</h3>
+        <p class="desc">Estruturo a operação comercial de infoprodutores com processo, dados e IA.</p>
+        <div class="links">
+          <a class="row" href="https://todaeco.com/" target="_blank" rel="noopener">Site<span>todaeco.com</span><svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+          <a class="row" href="https://www.instagram.com/somostoda_/" target="_blank" rel="noopener">Instagram<span>@somostoda_</span><svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+          <a class="row" href="https://todaeco.com/en/" target="_blank" rel="noopener">Site em inglês<span>todaeco.com/en</span><svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+          <a class="row" href="https://www.instagram.com/wearetoda_/" target="_blank" rel="noopener">Instagram em inglês<span>@wearetoda_</span><svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section class="panel" aria-labelledby="lota">
-    <div class="panel-head">
-      <span class="logo"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><clipPath id="lota-b"><path d="M20 6h8a14 14 0 0 1 14 14v6a14 14 0 0 1-14 14H13l-7 4.5V20A14 14 0 0 1 20 6z"/></clipPath></defs><rect width="48" height="48" fill="#4CC26A"/><g transform="translate(10.08 9.355) scale(0.58)"><g clip-path="url(#lota-b)"><rect width="48" height="48" fill="#0F2E22" opacity=".18"/><path d="M0 27c5-3.2 9-3.2 14 0s9 3.2 14 0 9-3.2 14 0 6 2 6 2V48H0z" fill="#0F2E22"/></g><path d="M20 6h8a14 14 0 0 1 14 14v6a14 14 0 0 1-14 14H13l-7 4.5V20A14 14 0 0 1 20 6z" fill="none" stroke="#0F2E22" stroke-width="4" stroke-linejoin="round"/></g></svg></span>
-      <div><h2 id="lota">Lota</h2><p>Plataforma para gerenciar grupos de WhatsApp em lançamentos, promoções e comunidades de clientes.</p></div>
+  <section class="co dark flip gut" id="lota" aria-labelledby="t-lota">
+    <div class="in">
+      <figure class="frame" style="margin:0"><div class="bar"><i></i><i></i><i></i><span>lotagrupo.com</span></div><img src="site-lota.jpg" alt="Página inicial do site da Lota" loading="lazy"></figure>
+      <div class="text">
+        <div class="name"><span class="logo"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><clipPath id="lota-b"><path d="M20 6h8a14 14 0 0 1 14 14v6a14 14 0 0 1-14 14H13l-7 4.5V20A14 14 0 0 1 20 6z"/></clipPath></defs><rect width="48" height="48" fill="#4CC26A"/><g transform="translate(10.08 9.355) scale(0.58)"><g clip-path="url(#lota-b)"><rect width="48" height="48" fill="#0F2E22" opacity=".18"/><path d="M0 27c5-3.2 9-3.2 14 0s9 3.2 14 0 9-3.2 14 0 6 2 6 2V48H0z" fill="#0F2E22"/></g><path d="M20 6h8a14 14 0 0 1 14 14v6a14 14 0 0 1-14 14H13l-7 4.5V20A14 14 0 0 1 20 6z" fill="none" stroke="#0F2E22" stroke-width="4" stroke-linejoin="round"/></g></svg></span><h2 id="t-lota">Lota</h2></div>
+        <h3>Clicou, entrou, lotou.</h3>
+        <p class="desc">Plataforma para gerenciar grupos de WhatsApp em lançamentos, promoções e comunidades de clientes.</p>
+        <div class="links">
+          <a class="row" href="https://lotagrupo.com/" target="_blank" rel="noopener">Site<span>lotagrupo.com</span><svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+          <a class="row" href="https://www.instagram.com/lotagrupo/" target="_blank" rel="noopener">Instagram<span>@lotagrupo</span><svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+      </div>
     </div>
-    <a class="row" href="https://lotagrupo.com/" target="_blank" rel="noopener"><div><strong>Site</strong><span>lotagrupo.com</span></div><svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-    <a class="row" href="https://www.instagram.com/lotagrupo/" target="_blank" rel="noopener"><div><strong>Instagram</strong><span>@lotagrupo</span></div><svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
   </section>
 
-  <section class="panel" aria-labelledby="trudda">
-    <div class="panel-head">
-      <span class="logo" style="background:#fff"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M8 20 C 34 20, 32 48, 58 48 M8 76 C 34 76, 32 48, 58 48 M56 48 H72" fill="none" stroke="#121212" stroke-width="8"/><circle cx="86" cy="48" r="8" fill="#2337F0"/></svg></span>
-      <div><h2 id="trudda">Trudda</h2><p>Mentoria de 2 meses com IA para agências e empresas digitais crescerem sem inchar.</p></div>
+  <section class="co light gut" id="trudda" aria-labelledby="t-trudda">
+    <div class="in">
+      <figure class="frame" style="margin:0"><div class="bar"><i></i><i></i><i></i><span>trudda.com</span></div><img src="site-trudda.jpg" alt="Página inicial do site da Trudda" loading="lazy"></figure>
+      <div class="text">
+        <div class="name"><span class="logo"><svg viewBox="0 0 96 96" aria-hidden="true"><rect width="96" height="96" fill="#fff"/><path d="M8 20 C 34 20, 32 48, 58 48 M8 76 C 34 76, 32 48, 58 48 M56 48 H72" fill="none" stroke="#121212" stroke-width="8"/><circle cx="86" cy="48" r="8" fill="#2337F0"/></svg></span><h2 id="t-trudda">Trudda</h2></div>
+        <h3>Cresça sem inchar.</h3>
+        <p class="desc">Mentoria de 2 meses com IA para agências e empresas digitais crescerem sem inchar.</p>
+        <div class="links">
+          <a class="row" href="https://trudda.com/" target="_blank" rel="noopener">Site<span>trudda.com</span><svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+          <a class="row" href="https://www.instagram.com/somostrudda/" target="_blank" rel="noopener">Instagram<span>@somostrudda</span><svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+      </div>
     </div>
-    <a class="row" href="https://trudda.com/" target="_blank" rel="noopener"><div><strong>Site</strong><span>trudda.com</span></div><svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-    <a class="row" href="https://www.instagram.com/somostrudda/" target="_blank" rel="noopener"><div><strong>Instagram</strong><span>@somostrudda</span></div><svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
   </section>
-
-  <section class="panel contact" aria-label="Entre em contato">
-    <a class="cta primary" href="https://wa.me/554896640747?text=Vim%20pelo%20instagram%20da%20Teodora%20e%20quero%20saber%20mais" target="_blank" rel="noopener">
-      <svg class="ico" viewBox="0 0 24 24"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.4-4.3A8.5 8.5 0 1 1 20.5 11.7z"/><path d="M9 9.2c.3 1.6 1.9 3.5 3.8 4.4l1.2-1 1.7.8c-.2 1-1 1.6-2 1.6-2.9-.3-5.6-3-5.9-5.9 0-1 .6-1.8 1.6-2l.8 1.7z"/></svg>
-      <div><strong>Fale comigo no WhatsApp</strong></div>
-      <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
-    </a>
-    <a class="cta" href="mailto:contato.teodoradutra@gmail.com">
-      <svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
-      <div><strong>E-mail</strong><span>contato.teodoradutra@gmail.com</span></div>
-      <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
-    </a>
-  </section>
-
-  <footer>
-    <p>Você não pode parar as ondas, mas pode aprender a surfar.</p>
-  </footer>
 
 </main>
+
+<section class="contact gut" aria-labelledby="contato">
+  <div class="in">
+    <h2 id="contato">Entre em contato</h2>
+    <a class="wa" href="https://wa.me/554896640747?text=Vim%20pelo%20instagram%20da%20Teodora%20e%20quero%20saber%20mais" target="_blank" rel="noopener">WhatsApp<svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+    <div class="links"><a class="row" href="mailto:contato.teodoradutra@gmail.com" style="grid-template-columns:auto minmax(0,1fr) 16px">E-mail<span>contato.teodoradutra@gmail.com</span><svg class="arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
+    <footer><p>Você não pode parar as ondas, mas pode aprender a surfar.</p></footer>
+  </div>
+</section>
+
 </body>
 </html>
